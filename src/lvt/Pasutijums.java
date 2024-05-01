@@ -29,4 +29,8 @@ public class Pasutijums {
 	public int getKlientIndekss() {
 		return klientaIndekss;
 	}
+	public String getDetails(Klients klients) {
+		return klients.getDati()+","+izmers+""+tips+
+				", piedevas: "+ piedevas+ ","+piegade+", skaits:"+daudzums+", kopā:" +cena+ "EUR";
+	}
 }

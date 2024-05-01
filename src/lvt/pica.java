@@ -141,6 +141,14 @@ public class pica {
 				}
 				break;
 			case 2:
+				String aktiviePasutijumi = "";
+				for(int i=0; i<pasutijumi.size(); i++) {
+					if(pasutijumi.get(i).getSatuss()==0) {
+						Pasutijums pasutijums = pasutijumi.get(i);
+						aktiviePasutijumi = aktiviePasutijumi + pasutijums.getDetails(klienti.get(pasutijums.getKlientIndekss()))+"\n";
+					}
+				}
+				JOptionPane.showMessageDialog(null, aktiviePasutijumi, "Aktīvie pasūtījumi", JOptionPane.PLAIN_MESSAGE);
 				break;
 			case 3:
 				break;
