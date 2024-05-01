@@ -14,6 +14,7 @@ public class pica {
 		String[] darbibas = {"Reģistrēt klientu", "Jauns pasūtījums", "Aktīvie pasūtījumi", "Pabeigtie pasūtiījumi",
 				"Pabeigt pasūtījumu", "Beigt darbu"};
 		ArrayList<Klients>klienti = new ArrayList<Klients>();
+		ArrayList<Pasutijums>pasutijumi = new ArrayList<Pasutijums>();
 		String[] izmers = {"Maza", "Vidēja", "Liela"};
 		String[] picasTipi = {"Margarita", "Siera plate", "Gaļas pica"};
 		String[] piedevas = {"Salami", "Pipari", "Siers", "Paprika"};
@@ -79,6 +80,7 @@ public class pica {
 				};
 				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
 				if(option == JOptionPane.OK_OPTION) {
+					int klientaIndekss = klientuSaraksts.getSelectedIndex();
 					kopejaCena = 0.00;
 					String piegadesTeksts = piegade.getSelectedItem().toString();
 					switch(piegadesTeksts) {
@@ -127,6 +129,11 @@ public class pica {
 								+piegadesTeksts+"\n"+"Kopējā cena:"+kopejaCena;
 						option = JOptionPane.showConfirmDialog(null, pasutijums, "Vai apstiprināt pasūtījmu?",
 								JOptionPane.OK_CANCEL_OPTION);
+						if(option == JOptionPane.OK_OPTION) {
+							Pasutijums jaunsPasutijums = new Pasutijums(klientaIndekss, izmeriTeksts, tipsTeksts,
+									piedevasTeksts, piegadesTeksts, picasKopa, kopejaCena, "0");
+							pasutijumi.add(jaunsPasutijums);
+						}
 						
 					}catch(Exception e) {
 					}
