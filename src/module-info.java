@@ -6,4 +6,5 @@
  *
  */
 module Pica {
+	requires java.desktop;
 }
