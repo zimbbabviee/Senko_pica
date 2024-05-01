@@ -1,5 +1,8 @@
 package lvt;
 
+import java.io.PrintWriter;
+import java.io.*;
+
 public class Klients {
 
 	private String vards;
@@ -22,6 +25,17 @@ public class Klients {
 	}
 	public String getDati() {
 		return vards+", "+adrese+", "+talrunis;
+	}
+	public void saglabatKlientu() {
+		String s = vards+"///Adrese: "+ adrese+ "///Telefons: "+talrunis;
+		try {
+			PrintWriter out = new PrintWriter(new FileWriter("klienti.txt", true));
+			out.println(s);
+			out.flush();
+			out.close();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

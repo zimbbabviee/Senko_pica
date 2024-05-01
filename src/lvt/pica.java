@@ -26,6 +26,7 @@ public class pica {
 				if(vards != null && adrese != null && talrunis != null
 						&& vards.length()>0 && adrese.length()>0&& talrunis.length()>0) {
 					Klients jaunsKlients = new Klients(vards, adrese,talrunis);
+					jaunsKlients.saglabatKlientu();
 					klienti.add(jaunsKlients);
 				}
 				break;
