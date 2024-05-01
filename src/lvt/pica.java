@@ -1,5 +1,6 @@
 package lvt;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.*;
@@ -10,6 +11,7 @@ public class pica {
 		int izveleIndekss;
 		String[] darbibas = {"Reģistrēt klientu", "Jauns pasūtījums", "Aktīvie pasūtījumi", "Pabeigtie pasūtiījumi",
 				"Pabeigt pasūtījumu", "Beigt darbu"};
+		ArrayList<Klients>klienti = new ArrayList<Klients>();
 		
 		
 		do {
@@ -18,8 +20,27 @@ public class pica {
 			izveleIndekss = Arrays.asList(darbibas).indexOf(izvele);
 			switch(izveleIndekss) {
 			case 0:
+				String vards = JOptionPane.showInputDialog("Klientā vārds");
+				String adrese = JOptionPane.showInputDialog("Klientā adrese");
+				String talrunis = JOptionPane.showInputDialog("Klientā talrunis");
+				if(vards != null && adrese != null && talrunis != null
+						&& vards.length()>0 && adrese.length()>0&& talrunis.length()>0) {
+					Klients jaunsKlients = new Klients(vards, adrese,talrunis);
+					klienti.add(jaunsKlients);
+				}
 				break;
 			case 1:
+				if(klienti.size()>0) {
+					JComboBox<String> klientuSaraksts = new JComboBox<String>();
+					for(int i = 0; i<klienti.size(); i++) {
+						String klientsSarakstam = klienti.get(i).getDati();
+						klientuSaraksts.addItem(klientsSarakstam);
+					}
+				Object[] message={
+					"klients: ", klientuSaraksts
+				};
+				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
+				}
 				break;
 			case 2:
 				break;
