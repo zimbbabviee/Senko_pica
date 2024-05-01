@@ -18,6 +18,7 @@ public class pica {
 		String[] picasTipi = {"Margarita", "Siera plate", "Gaļas pica"};
 		String[] piedevas = {"Salami", "Pipari", "Siers", "Paprika"};
 		String[] picuSanems = {"Ar piegādi", "Uz vietas"};
+		double kopejaCena = 0;
 		//ielaide klientus no failus
 		try(Scanner scanner = new Scanner(Paths.get("klienti.txt"))) {
 			while(scanner.hasNextLine()) {
@@ -76,6 +77,51 @@ public class pica {
 					"picu saņems: ", piegade
 				};
 				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
+				if(option == JOptionPane.OK_OPTION) {
+					kopejaCena = 0.00;
+					String piegadesTeksts = piegade.getSelectedItem().toString();
+					switch(piegadesTeksts) {
+					case "Uz vietas":
+						kopejaCena = kopejaCena+0;
+						break;
+					case "Ar piegādi":
+						kopejaCena = kopejaCena +2;
+						break;
+					}
+					String izmeriTeksts = izmeri.getSelectedItem().toString();
+					switch(izmeriTeksts) {
+					case "Maza":
+						kopejaCena = kopejaCena +3;
+						break;
+					case "Vidēja":
+						kopejaCena = kopejaCena +5;
+						break;
+					case "Liela":
+						kopejaCena = kopejaCena + 7;
+						break;
+					}
+					String tipsTeksts = tips.getSelectedItem().toString();
+					switch(tipsTeksts) {
+					case "Margarita":
+						kopejaCena = kopejaCena +3;
+					break;
+					case "Siera plate":
+						kopejaCena = kopejaCena +2;
+						break;
+					case "Gaļas pica":
+						kopejaCena = kopejaCena +5;
+						break;
+					}
+					String piedevasTeksts = "";
+					for(int i=0; i<piedevas.length; i++) {
+						if (picaspiedevs[i].isSelected()) {
+							kopejaCena = kopejaCena +2;
+							piedevasTeksts = piedevasTeksts +""+picaspiedevs[i].getText();
+						}
+					}
+					System.out.println(kopejaCena);
+	
+				}
 				}
 				break;
 			case 2:
