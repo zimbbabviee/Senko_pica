@@ -167,6 +167,25 @@ public class pica {
 			case 3:
 				break;
 			case 4:
+				ArrayList<Pasutijums>pabeidzamiePasutijumi = new ArrayList<>();
+				for(int i=0; i<pasutijumi.size();i++) {
+					if(pasutijumi.get(i).getSatuss()==0) {
+						Pasutijums pasutijums = pasutijumi.get(i);
+						pasutijums.setIndekssInList(i);
+						pabeidzamiePasutijumi.add(pasutijums);
+					}
+				}
+				String[]pasutijumuMenu = new String[pabeidzamiePasutijumi.size()];
+				for(int i=0; i<pabeidzamiePasutijumi.size(); i++) {
+					Pasutijums pasutijums = pabeidzamiePasutijumi.get(i);
+					pasutijumuMenu[i] = pasutijums.getDetails(klienti.get(pasutijums.getKlientIndekss()));
+				}
+				izvele = (String)JOptionPane.showInputDialog(null,"Kuru pasūtījuu pagbeigt?", "Pabeigt pasūtījumu",
+						JOptionPane.QUESTION_MESSAGE, null, pasutijumuMenu, pasutijumuMenu[0]);
+				izveleIndekss = Arrays.asList(pasutijumuMenu).indexOf(izvele);
+				if(izveleIndekss>=0) {
+					pabeidzamiePasutijumi.get(izveleIndekss).pabeigtPasutijumu();
+				}
 				break;
 			case 5:
 				JOptionPane.showMessageDialog(null,"Uz redzēšanos!", "Programmas apturēšana", 
