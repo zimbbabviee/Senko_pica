@@ -14,7 +14,7 @@ public class pica {
 		String[] darbibas = {"Reģistrēt klientu", "Jauns pasūtījums", "Aktīvie pasūtījumi", "Pabeigtie pasūtiījumi",
 				"Pabeigt pasūtījumu", "Beigt darbu"};
 		ArrayList<Klients>klienti = new ArrayList<Klients>();
-		
+		String[] izmers = {"Maza", "Vidēja", "Liela"};
 		//ielaide klientus no failus
 		try(Scanner scanner = new Scanner(Paths.get("klienti.txt"))) {
 			while(scanner.hasNextLine()) {
@@ -48,8 +48,14 @@ public class pica {
 						String klientsSarakstam = klienti.get(i).getDati();
 						klientuSaraksts.addItem(klientsSarakstam);
 					}
+					JComboBox<String> izmeri = new JComboBox<String>();
+					for(int i=0; i<izmers.length; i++) {
+						izmeri.addItem(izmers[i]);
+					}
+					
 				Object[] message={
-					"klients: ", klientuSaraksts
+					"klients: ", klientuSaraksts,
+					"picas izmers: ", izmeri
 				};
 				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
 				}
