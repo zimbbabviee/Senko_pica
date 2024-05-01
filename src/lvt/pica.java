@@ -17,6 +17,7 @@ public class pica {
 		String[] izmers = {"Maza", "Vidēja", "Liela"};
 		String[] picasTipi = {"Margarita", "Siera plate", "Gaļas pica"};
 		String[] piedevas = {"Salami", "Pipari", "Siers", "Paprika"};
+		String[] picuSanems = {"Ar piegādi", "Uz vietas"};
 		//ielaide klientus no failus
 		try(Scanner scanner = new Scanner(Paths.get("klienti.txt"))) {
 			while(scanner.hasNextLine()) {
@@ -62,12 +63,17 @@ public class pica {
 					for(int i=0; i<piedevas.length; i++) {
 						picaspiedevs[i] = new JCheckBox(piedevas[i]);
 					}
+					JComboBox<String> piegade = new JComboBox<String>();
+					for(int i=0; i<picuSanems.length; i++) {
+						piegade.addItem(picuSanems[i]);
+					}
 					
 				Object[] message={
 					"klients: ", klientuSaraksts,
 					"picas izmers: ", izmeri,
-					 "picas tips: ", tips,
-					 "picas piedevas: ",picaspiedevs
+					"picas tips: ", tips,
+					"picas piedevas: ",picaspiedevs,
+					"picu saņems: ", piegade
 				};
 				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
 				}
