@@ -68,13 +68,14 @@ public class pica {
 					for(int i=0; i<picuSanems.length; i++) {
 						piegade.addItem(picuSanems[i]);
 					}
-					
+					JTextField picuSkaits = new JTextField();
 				Object[] message={
 					"klients: ", klientuSaraksts,
 					"picas izmers: ", izmeri,
 					"picas tips: ", tips,
 					"picas piedevas: ",picaspiedevs,
-					"picu saņems: ", piegade
+					"picu saņems: ", piegade,
+					"picu skaitu: ", picuSkaits
 				};
 				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
 				if(option == JOptionPane.OK_OPTION) {
@@ -119,7 +120,13 @@ public class pica {
 							piedevasTeksts = piedevasTeksts +""+picaspiedevs[i].getText();
 						}
 					}
-					System.out.println(kopejaCena);
+					try {
+						int picasKopa = Integer.valueOf(picuSkaits.getText());
+						kopejaCena = kopejaCena * Double.valueOf(picuSkaits.getText());
+						System.out.println(kopejaCena);
+					}catch(Exception e) {
+						System.out.println(e);
+					}
 	
 				}
 				}
