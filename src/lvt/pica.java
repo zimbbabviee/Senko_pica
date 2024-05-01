@@ -123,11 +123,13 @@ public class pica {
 					try {
 						int picasKopa = Integer.valueOf(picuSkaits.getText());
 						kopejaCena = kopejaCena * Double.valueOf(picuSkaits.getText());
-						System.out.println(kopejaCena);
+						String pasutijums = izmeriTeksts+""+tipsTeksts+",\n"+"piedevās:"+piedevasTeksts+",\n"
+								+piegadesTeksts+"\n"+"Kopējā cena:"+kopejaCena;
+						option = JOptionPane.showConfirmDialog(null, pasutijums, "Vai apstiprināt pasūtījmu?",
+								JOptionPane.OK_CANCEL_OPTION);
+						
 					}catch(Exception e) {
-						System.out.println(e);
 					}
-	
 				}
 				}
 				break;
