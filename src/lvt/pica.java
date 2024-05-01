@@ -152,6 +152,8 @@ public class pica {
 					}catch(Exception e) {
 					}
 				}
+				}else {
+				JOptionPane.showMessageDialog(null, "Nav pievienoti klientu", "Info", JOptionPane.ERROR_MESSAGE);
 				}
 				break;
 			case 2:
