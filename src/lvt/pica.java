@@ -132,6 +132,7 @@ public class pica {
 						if(option == JOptionPane.OK_OPTION) {
 							Pasutijums jaunsPasutijums = new Pasutijums(klientaIndekss, izmeriTeksts, tipsTeksts,
 									piedevasTeksts, piegadesTeksts, picasKopa, kopejaCena, "0");
+							jaunsPasutijums.saglabatPasutijumu();
 							pasutijumi.add(jaunsPasutijums);
 						}
 						

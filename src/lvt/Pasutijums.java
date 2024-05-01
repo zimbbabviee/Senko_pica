@@ -1,5 +1,8 @@
 package lvt;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 public class Pasutijums {
 
 	private int klientaIndekss;
@@ -32,5 +35,18 @@ public class Pasutijums {
 	public String getDetails(Klients klients) {
 		return klients.getDati()+","+izmers+""+tips+
 				", piedevas: "+ piedevas+ ","+piegade+", skaits:"+daudzums+", kopā:" +cena+ "EUR";
+	}
+	public void saglabatPasutijumu() {
+		String s = statuss+"///"+klientaIndekss+"///"+izmers+"///"+tips+"///"+"///"+piedevas+"///"+piegade+"///"+
+	daudzums+"///"+"///"+cena;
+		try {
+			PrintWriter out = new PrintWriter(new FileWriter("pasutijumi.txt", true));
+			out.println(s);
+			out.flush();
+			out.close();
+		
+	}catch(Exception e) {
+		System.out.println(e);
+	}
 	}
 }
