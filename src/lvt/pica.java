@@ -1,7 +1,9 @@
 package lvt;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import javax.swing.*;
 public class pica {
@@ -13,7 +15,16 @@ public class pica {
 				"Pabeigt pasūtījumu", "Beigt darbu"};
 		ArrayList<Klients>klienti = new ArrayList<Klients>();
 		
-		
+		//ielaide klientus no failus
+		try(Scanner scanner = new Scanner(Paths.get("klienti.txt"))) {
+			while(scanner.hasNextLine()) {
+				String r = scanner.nextLine();
+				String[] klientsNoFaila = r.split("///");
+				klienti.add(new Klients(klientsNoFaila[0], klientsNoFaila[1], klientsNoFaila[2]));
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		do {
 			izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies darbību: ", "Izvele",
 					JOptionPane.QUESTION_MESSAGE,null, darbibas, darbibas[0]);
