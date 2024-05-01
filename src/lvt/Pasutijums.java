@@ -37,8 +37,8 @@ public class Pasutijums {
 				", piedevas: "+ piedevas+ ","+piegade+", skaits:"+daudzums+", kopā:" +cena+ "EUR";
 	}
 	public void saglabatPasutijumu() {
-		String s = statuss+"///"+klientaIndekss+"///"+izmers+"///"+tips+"///"+"///"+piedevas+"///"+piegade+"///"+
-	daudzums+"///"+"///"+cena;
+		String s = statuss+"///"+klientaIndekss+"///"+izmers+"///"+tips+"///"+piedevas+"///"+piegade+"///"+
+	daudzums+"///"+cena;
 		try {
 			PrintWriter out = new PrintWriter(new FileWriter("pasutijumi.txt", true));
 			out.println(s);

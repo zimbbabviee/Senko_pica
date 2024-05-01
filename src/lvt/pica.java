@@ -30,6 +30,19 @@ public class pica {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
+		try(Scanner scanner = new Scanner(Paths.get("pasutijumi.txt"))){
+			while(scanner.hasNextLine()) {
+				String r = scanner.nextLine();
+				String[]pasutijumsNoFaila = r.split("///");
+				int failaKlients = Integer.valueOf(pasutijumsNoFaila[1]);
+				int failaDaudzums = Integer.valueOf(pasutijumsNoFaila[6]);
+				double failaCena = Double.valueOf(pasutijumsNoFaila[7]);
+				pasutijumi.add(new Pasutijums(failaKlients, pasutijumsNoFaila[2], pasutijumsNoFaila[3], 
+						pasutijumsNoFaila[4], pasutijumsNoFaila[5], failaDaudzums, failaCena, pasutijumsNoFaila[0]));
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		do {
 			izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies darbību: ", "Izvele",
 					JOptionPane.QUESTION_MESSAGE,null, darbibas, darbibas[0]);
