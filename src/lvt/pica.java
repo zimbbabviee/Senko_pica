@@ -20,6 +20,9 @@ public class pica {
 		String[] piedevas = {"Salami", "Pipari", "Siers", "Paprika"};
 		String[] picuSanems = {"Ar piegādi", "Uz vietas"};
 		double kopejaCena = 0;
+		
+		ImageIcon bye = new ImageIcon("bye.png");
+		ImageIcon pizza = new ImageIcon("pizza.png");
 		//ielaide klientus no failus
 		try(Scanner scanner = new Scanner(Paths.get("klienti.txt"))) {
 			while(scanner.hasNextLine()) {
@@ -45,7 +48,7 @@ public class pica {
 		}
 		do {
 			izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies darbību: ", "Izvele",
-					JOptionPane.QUESTION_MESSAGE,null, darbibas, darbibas[0]);
+					JOptionPane.QUESTION_MESSAGE,pizza, darbibas, darbibas[0]);
 			izveleIndekss = Arrays.asList(darbibas).indexOf(izvele);
 			switch(izveleIndekss) {
 			case 0:
@@ -201,7 +204,7 @@ public class pica {
 				break;
 			case 5:
 				JOptionPane.showMessageDialog(null,"Uz redzēšanos!", "Programmas apturēšana", 
-						JOptionPane.PLAIN_MESSAGE);
+						JOptionPane.PLAIN_MESSAGE, bye);
 				break;
 			}
 		}while(izveleIndekss !=5);
