@@ -165,6 +165,16 @@ public class pica {
 				JOptionPane.showMessageDialog(null, aktiviePasutijumi, "Aktīvie pasūtījumi", JOptionPane.PLAIN_MESSAGE);
 				break;
 			case 3:
+				String pabeigtiePasutijumi = "";
+				for(int i=0; i<pasutijumi.size();i++) {
+					if(pasutijumi.get(i).getSatuss()==1) {
+						Pasutijums pasutijums = pasutijumi.get(i);
+						pabeigtiePasutijumi = pabeigtiePasutijumi + 
+								pasutijums.getDetails(klienti.get(pasutijums.getKlientIndekss()))+"\n";
+					}
+				}
+				JOptionPane.showMessageDialog(null, pabeigtiePasutijumi, "Pabeigtie pasūtījumi", 
+						JOptionPane.PLAIN_MESSAGE);
 				break;
 			case 4:
 				ArrayList<Pasutijums>pabeidzamiePasutijumi = new ArrayList<>();
