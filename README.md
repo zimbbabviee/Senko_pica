@@ -4,8 +4,6 @@ Projekts par picērijas funkcionalitāti. Tiek izmantoti dialoga logi JOptionPan
 ![image](https://github.com/zimbbabviee/Senko_pica/assets/165993985/8e812a14-9aca-4fb5-ad11-1ef66a7cf789)
 
 # ***Task List***
-- [x] Izveidotas klases pircēja un pasūtījuma izveidei.
-- [x] Izveidota galvenā klase, kurā ietverta visa picērijas loģika.
 - [x] Iespēja izvēlēties darbību, ko klients vēlas veikt.
 
 ![image](https://github.com/zimbbabviee/Senko_pica/assets/165993985/37f56a01-4d7a-4349-afee-10e22e73d836)
