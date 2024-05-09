@@ -56,7 +56,7 @@ public class pica {
 				boolean vardsarB = vards.matches("[a-zA-ZāčēģīķļņšūžĀČĒĢĪĶĻŅŠŪŽ]+");
 				if (vardsarB) {
 				String adrese = JOptionPane.showInputDialog("Klientā adrese");
-				String talrunis = JOptionPane.showInputDialog("Klientā talrunis");
+				String talrunis = JOptionPane.showInputDialog("Klientā tālrunis");
 				if(vards != null && adrese != null && talrunis != null
 						&& vards.length()>0 && adrese.length()>0&& talrunis.length()>0) {
 					Klients jaunsKlients = new Klients(vards, adrese,talrunis);
@@ -64,7 +64,7 @@ public class pica {
 					klienti.add(jaunsKlients);
 				}
 				}else {
-					JOptionPane.showMessageDialog(null, "Nekorrekti usrakstits vards!","Info", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nekorekti uzrakstīts vārds!","Info", JOptionPane.ERROR_MESSAGE);
 					
 				}
 				break;
@@ -146,6 +146,10 @@ public class pica {
 					}
 					try {
 						int picasKopa = Integer.valueOf(picuSkaits.getText());
+						if(picasKopa <=0) {
+							JOptionPane.showMessageDialog(null, "Ievadiet korektu picu skaitu!", "Info",
+									JOptionPane.ERROR_MESSAGE);
+						}
 						kopejaCena = kopejaCena * Double.valueOf(picuSkaits.getText());
 						String pasutijums = izmeriTeksts+" "+tipsTeksts+", \n"+"piedevās: "+piedevasTeksts+", \n"
 								+piegadesTeksts+"\n"+"Kopējā cena: "+ kopejaCena;
@@ -159,10 +163,11 @@ public class pica {
 						}
 						
 					}catch(Exception e) {
+						return;
 					}
 				}
 				}else {
-				JOptionPane.showMessageDialog(null, "Nav pievienoti klientu", "Info", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Nav pievienoti klienti!", "Info", JOptionPane.ERROR_MESSAGE);
 				}
 				break;
 			case 2:
@@ -203,7 +208,7 @@ public class pica {
 					Pasutijums pasutijums = pabeidzamiePasutijumi.get(i);
 					pasutijumuMenu[i] = pasutijums.getDetails(klienti.get(pasutijums.getKlientIndekss()));
 				}
-				izvele = (String)JOptionPane.showInputDialog(null,"Kuru pasūtījuu pagbeigt?", "Pabeigt pasūtījumu",
+				izvele = (String)JOptionPane.showInputDialog(null,"Kuru pasūtījumu pagbeigt?", "Pabeigt pasūtījumu",
 						JOptionPane.QUESTION_MESSAGE, null, pasutijumuMenu, pasutijumuMenu[0]);
 				izveleIndekss = Arrays.asList(pasutijumuMenu).indexOf(izvele);
 				if(izveleIndekss>=0) {
@@ -211,7 +216,7 @@ public class pica {
 				}
 				}
 				}else {
-					JOptionPane.showMessageDialog(null, "Pasutijumi nav pievienoti!", "Info", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Pasūtījumi nav pievienoti!", "Info", JOptionPane.ERROR_MESSAGE);
 				}
 				break;
 			case 5:
