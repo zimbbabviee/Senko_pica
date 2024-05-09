@@ -53,6 +53,8 @@ public class pica {
 			switch(izveleIndekss) {
 			case 0:
 				String vards = JOptionPane.showInputDialog("Klientā vārds");
+				boolean vardsarB = vards.matches("[a-zA-ZāčēģīķļņšūžĀČĒĢĪĶĻŅŠŪŽ]+");
+				if (vardsarB) {
 				String adrese = JOptionPane.showInputDialog("Klientā adrese");
 				String talrunis = JOptionPane.showInputDialog("Klientā talrunis");
 				if(vards != null && adrese != null && talrunis != null
@@ -60,6 +62,10 @@ public class pica {
 					Klients jaunsKlients = new Klients(vards, adrese,talrunis);
 					jaunsKlients.saglabatKlientu();
 					klienti.add(jaunsKlients);
+				}
+				}else {
+					JOptionPane.showMessageDialog(null, "Nekorrekti usrakstits vards!","Info", JOptionPane.ERROR_MESSAGE);
+					
 				}
 				break;
 			case 1:
@@ -90,7 +96,7 @@ public class pica {
 					"klients: ", klientuSaraksts,
 					"picas izmers: ", izmeri,
 					"picas tips: ", tips,
-					"picas piedevas: ",picaspiedevs,
+					"picas piedevas: " , picaspiedevs,
 					"picu saņems: ", piegade,
 					"picu skaitu: ", picuSkaits
 				};
@@ -141,8 +147,8 @@ public class pica {
 					try {
 						int picasKopa = Integer.valueOf(picuSkaits.getText());
 						kopejaCena = kopejaCena * Double.valueOf(picuSkaits.getText());
-						String pasutijums = izmeriTeksts+""+tipsTeksts+",\n"+"piedevās:"+piedevasTeksts+",\n"
-								+piegadesTeksts+"\n"+"Kopējā cena:"+kopejaCena;
+						String pasutijums = izmeriTeksts+" "+tipsTeksts+", \n"+"piedevās: "+piedevasTeksts+", \n"
+								+piegadesTeksts+"\n"+"Kopējā cena: "+ kopejaCena;
 						option = JOptionPane.showConfirmDialog(null, pasutijums, "Vai apstiprināt pasūtījmu?",
 								JOptionPane.OK_CANCEL_OPTION);
 						if(option == JOptionPane.OK_OPTION) {
@@ -182,6 +188,7 @@ public class pica {
 						JOptionPane.PLAIN_MESSAGE);
 				break;
 			case 4:
+				if (pasutijumi.size() > 0) {
 				ArrayList<Pasutijums>pabeidzamiePasutijumi = new ArrayList<>();
 				for(int i=0; i<pasutijumi.size();i++) {
 					if(pasutijumi.get(i).getSatuss()==0) {
@@ -190,6 +197,7 @@ public class pica {
 						pabeidzamiePasutijumi.add(pasutijums);
 					}
 				}
+				if(pabeidzamiePasutijumi.size() > 0) {
 				String[]pasutijumuMenu = new String[pabeidzamiePasutijumi.size()];
 				for(int i=0; i<pabeidzamiePasutijumi.size(); i++) {
 					Pasutijums pasutijums = pabeidzamiePasutijumi.get(i);
@@ -200,6 +208,10 @@ public class pica {
 				izveleIndekss = Arrays.asList(pasutijumuMenu).indexOf(izvele);
 				if(izveleIndekss>=0) {
 					pabeidzamiePasutijumi.get(izveleIndekss).pabeigtPasutijumu();
+				}
+				}
+				}else {
+					JOptionPane.showMessageDialog(null, "Pasutijumi nav pievienoti!", "Info", JOptionPane.ERROR_MESSAGE);
 				}
 				break;
 			case 5:
