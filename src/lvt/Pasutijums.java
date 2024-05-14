@@ -42,7 +42,7 @@ public class Pasutijums {
 	}
 	public String getDetails(Klients klients) {
 		return klients.getDati()+","+izmers+""+tips+
-				", piedevas: "+ piedevas+ ","+piegade+", skaits:"+daudzums+", kopā:" +cena+ "EUR";
+				", piedevas: "+ piedevas + ","+ piegade +", skaits :" +daudzums+" , kopā:" +cena+ "EUR";
 	}
 	public void setIndekssInList(int indeks) {
 		indeksInList = indeks;

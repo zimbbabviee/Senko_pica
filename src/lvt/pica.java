@@ -94,11 +94,12 @@ public class pica {
 					JTextField picuSkaits = new JTextField();
 				Object[] message={
 					"klients: ", klientuSaraksts,
-					"picas izmers: ", izmeri,
-					"picas tips: ", tips,
-					"picas piedevas: " , picaspiedevs,
-					"picu saņems: ", piegade,
-					"picu skaitu: ", picuSkaits
+					"picas izmers: ", izmeri, "3 EUR par mazu, 5 EUR par vidēju, 7 EUR par lielu","\n",
+					"picas tips: ", tips, "3 EUR par Margaritu, 2 EUR par Siera plate, 5 EUR par Gaļas picu","\n",
+					"picas piedevas: " , picaspiedevs, "2 EUR par katru piedevu","\n",
+					"picu saņems: ", piegade, "0 EUR par līdzņemšanu, 2 EUR par piegādi", "\n",
+					"picu skaitu: ", picuSkaits,
+					"Cena: ", kopejaCena,
 				};
 				int option = JOptionPane.showConfirmDialog(null, message, "Izveidot pasūtījumu", JOptionPane.OK_CANCEL_OPTION);
 				if(option == JOptionPane.OK_OPTION) {
@@ -151,8 +152,8 @@ public class pica {
 									JOptionPane.ERROR_MESSAGE);
 						}
 						kopejaCena = kopejaCena * Double.valueOf(picuSkaits.getText());
-						String pasutijums = izmeriTeksts+" "+tipsTeksts+", \n"+"piedevās: "+piedevasTeksts+", \n"
-								+piegadesTeksts+"\n"+"Kopējā cena: "+ kopejaCena;
+						String pasutijums = izmeriTeksts+""+tipsTeksts+",\n"+"piedevās:"+piedevasTeksts+",\n"
+								+piegadesTeksts+"\n"+"Kopējā cena:"+kopejaCena;
 						option = JOptionPane.showConfirmDialog(null, pasutijums, "Vai apstiprināt pasūtījmu?",
 								JOptionPane.OK_CANCEL_OPTION);
 						if(option == JOptionPane.OK_OPTION) {
