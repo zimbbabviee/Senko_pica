@@ -18,7 +18,7 @@ Projekts par picērijas funkcionalitāti. Tiek izmantoti dialoga logi JOptionPan
 ![image](https://github.com/zimbbabviee/Senko_pica/assets/165993985/96d9cd08-f014-4856-8c8b-af152d00dbf6)
 
 - [x] Ir iespējams veikt pasūtījumu, pārlūkojot picu veidu un picu piedevu piedāvājumus, kā arī izvēlēties piegādi/izvešanu.
-     ![image](https://github.com/zimbbabviee/Senko_pica/assets/165993985/7cbdd894-937d-488e-9009-0d15f5d47f3c)
+![image](https://github.com/zimbbabviee/Senko_pica/assets/165993985/f94824f3-91d2-4eb3-b3e2-989410fac401)
 
 - [x] Ja lietotājs ievada negatīvu picu skaitu vai 0, tiek parādīta arī kļūda.
       
